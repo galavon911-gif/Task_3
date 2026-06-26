@@ -6,9 +6,6 @@ import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -29,12 +26,10 @@ public class BaseTest {
             WebDriverManager.chromedriver().driverVersion("146.0.7680.0").setup();
             //Указан путь до исполнительного файла браузера Яндекс на моем компьютере
             options.setBinary("C:\\Program Files\\Yandex\\YandexBrowser\\Application\\browser.exe");
-            driver = new ChromeDriver(options);
         } else {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options); // Передаем настройки кэша в Chrome
-        }
+            WebDriverManager.chromedriver().setup();}
 
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(BASE_URL);
     }
